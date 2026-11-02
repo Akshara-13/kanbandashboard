@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "backend": "cd kanban-backend && npm run dev",
+    "frontend": "cd kanban-frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^10.0.6"
+  }
+}

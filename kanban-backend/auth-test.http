@@ -1,0 +1,118 @@
+
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ananya Sharma",
+  "email": "ananya1@gmail.com",
+  "password": "ananya@123"
+}
+
+###
+
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ananya1@gmail.com",
+  "password": "ananya@123"
+}
+
+### LOGIN AS RAHUL
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "rahul@example.com",
+  "password": "Demo@123!"
+}
+
+###
+CREATE BOARD
+POST http://localhost:5000/api/boards/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjE4MzU3LCJleHAiOjE3OTM2MjAxNTd9.9LmMZPtFdgHdpi-qMGH4hg1V1eamc9spXXxGIVUAecM
+Content-Type: application/json
+
+{
+  "name": "My New Sprint Board",
+  "description": "Board created through the API"
+}
+
+### 1. CREATE COLUMN
+POST http://localhost:5000/api/columns/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/4c59d6d8-3890-41e0-8e7b-77894ebc537c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjE4MzU3LCJleHAiOjE3OTM2MjAxNTd9.9LmMZPtFdgHdpi-qMGH4hg1V1eamc9spXXxGIVUAecM
+Content-Type: application/json
+
+{
+  "name": "Testing",
+  "position": 8
+}
+
+###
+GET http://localhost:5000/api/tasks/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/4c59d6d8-3890-41e0-8e7b-77894ebc537c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjE5MDE2LCJleHAiOjE3OTM2MjA4MTZ9.J6Zk7gVF1Ua1ytXgbXLjKJu57UTRLzwPyqgz0H6teKI
+
+### 1. CREATE TASK
+POST http://localhost:5000/api/tasks/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjI1OTc1LCJleHAiOjE3OTM3MTIzNzV9.wk2psEjmb4Gl8vbQTgipu2TO_qaofRaGjL3yyTXoLts
+Content-Type: application/json
+
+{
+  "column_id": "b5410cde-2f3c-4828-a9d9-54e858afc16c",
+  "title": "Build login page",
+  "description": "Implement login page",
+  "priority": "medium",
+  "position": 1
+}
+###
+
+### 2. GET ALL TASKS
+GET http://localhost:5000/api/tasks/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjI1OTc1LCJleHAiOjE3OTM3MTIzNzV9.wk2psEjmb4Gl8vbQTgipu2TO_qaofRaGjL3yyTXoLts
+###
+
+### 3. GET ONE TASK
+GET http://localhost:5000/api/tasks/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa/2f352748-0189-40d4-952f-3d666d58588f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjIyNDYxLCJleHAiOjE3OTM2MjQyNjF9.EiYyKZJyLg2HLcBFjMnpAWFu_jvWVUmgJmKNZTjA9A0
+
+###
+
+### 4. UPDATE TASK
+PUT http://localhost:5000/api/tasks/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa/2f352748-0189-40d4-952f-3d666d58588f/7159b591-a75a-43c7-89c0-4b60ef333c72
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjI1OTc1LCJleHAiOjE3OTM3MTIzNzV9.wk2psEjmb4Gl8vbQTgipu2TO_qaofRaGjL3yyTXoLts
+Content-Type: application/json
+
+
+{
+  "title": "Build updated login page",
+  "priority": "high",
+  "version": 1
+}
+
+###
+
+### 5. MOVE TASK
+PATCH http://localhost:5000/api/tasks/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa/2f352748-0189-40d4-952f-3d666d58588f/move
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjIyNDYxLCJleHAiOjE3OTM2MjQyNjF9.EiYyKZJyLg2HLcBFjMnpAWFu_jvWVUmgJmKNZTjA9A0
+Content-Type: application/json
+
+{
+  "column_id": "b5410cde-2f3c-4828-a9d9-54e858afc16c",
+  "position": 2,
+  "version": 2
+}
+
+###
+
+### 6. DELETE TASK
+DELETE http://localhost:5000/api/tasks/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa/2f352748-0189-40d4-952f-3d666d58588f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjIyNDYxLCJleHAiOjE3OTM2MjQyNjF9.EiYyKZJyLg2HLcBFjMnpAWFu_jvWVUmgJmKNZTjA9A0
+
+### GET BOARD ACTIVITY
+GET http://localhost:5000/api/activity/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjI1MjYzLCJleHAiOjE3OTM3MTE2NjN9.o42RH4swMWgL1b1Phva41b2oOVQ6WGUU8_lpK5k_zn8
+
+### GET TASK ACTIVITY
+GET http://localhost:5000/api/activity/db67e1d0-78ac-4ac8-8ccf-86ebac52e3a0/485a99da-c923-4850-8e4f-5cf888cd18aa/2b5637f0-45a6-4413-92a4-d2a57952525e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmOTE0NTU5Zi1hM2M5LTRiNzMtYTg0NC04YmRhY2U5ZDc4ZTciLCJlbWFpbCI6InJhaHVsQGV4YW1wbGUuY29tIiwiaWF0IjoxNzkzNjI1MjYzLCJleHAiOjE3OTM3MTE2NjN9.o42RH4swMWgL1b1Phva41b2oOVQ6WGUU8_lpK5k_zn8

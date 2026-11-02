@@ -1,0 +1,7 @@
+node_modules/
+kanban-backend/node_modules/
+kanban-frontend/node_modules/
+.env
+kanban-backend/.env
+dist/
+build/
